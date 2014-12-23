@@ -1,0 +1,25 @@
+{
+    "name" : "duo-typescript-example",
+    "description" : "example component using duo-typescript",
+    "dependencies" : {
+        "components/angular.js": "1.3"
+    },
+    "local": [
+   
+    ],
+    "main" : "example/example.ts",
+    "scripts" : [
+        "api/example.d.ts",
+        "example/_references.d.ts",
+        "example/_dependencies.d.ts",
+        "example/example.ts",
+        "example/example-service.ts",
+        "example/example-types.d.ts"  
+    ],
+    "styles" : [
+        
+    ],
+    "typescript": {
+        "definition": "api/example.d.ts"
+    }
+}

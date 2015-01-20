@@ -5,7 +5,7 @@ typescript compiler plugin for duo
 
 # Overview #
 
-duo-typescript uses version 1.3 of the typescript compiler
+duo-typescript uses version 1.4 of the typescript compiler
 
 # API #
 

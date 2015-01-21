@@ -34,35 +34,7 @@ gulp.task('scripts-bundle', function (cb) {
 
 });
 
-gulp.task('scripts-bundle1', function (cb) {
-    // var Duo = require('duo');
-    // var fs = require('fs');
-    // var typescript = require('./');
-    
-    // var duo = new Duo(process.cwd())    
-    //   .development(true)
-    //   .entry('example/index.ts')
-    //   .use(typescript({ sourceMap: true }))
-    //   .run(function(err, src) {
-    //         if (err) {
-    //             gutil.log(err);
-    //             cb();
-    //         }
-    //         else {
-    //             var filename = 'build/build.js';
-    //             fs.writeFile(filename, src, function(err) {
-    //                 if (err) throw err;
-    //                 gutil.log('Generated ' + filename);
-    //                 cb();
-    //             });
-    //         }
-    //     });
 
-
-
-cb();
-});
-
-gulp.task('scripts', ['scripts-bundle1']);
+gulp.task('scripts', ['scripts-bundle']);
 gulp.task('watch', ['watch-scripts']);
-gulp.task('default', ['scripts', 'scripts-bundle']);
+gulp.task('default', ['scripts']);

@@ -14,7 +14,7 @@ duoTypescript(options);
 
 options can be any of the usual TypeScript compiler options, plus:
 
-
 Name       		   | Description											| Default
 -------------------|--------------------------------------------------------|-----------
 gulpMode           | use gulp-style logging									| false
+

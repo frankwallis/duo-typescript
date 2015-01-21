@@ -1,6 +1,6 @@
 {
   "name": "duo-typescript",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "TypeScript compiler for duo",
   "directories": {},
   "main": "lib/plugin.js",
@@ -9,11 +9,10 @@
     "Frank Wallis"
   ],
   "keywords": [
-    "component",
     "duo",
     "typescript",
     "bundle",
-    "visual studio",
+    "browserify",
     "plugin"
   ],
   "repository": {
@@ -26,6 +25,7 @@
     "debuglog": "^1.0.1",
     "gulp-util": "^3.0.1",
     "lodash": "^2.4.1",
+    "requires": "^1.0.2",
     "typescript": "^1.4.1"
   },
   "devDependencies": {

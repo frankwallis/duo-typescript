@@ -1,10 +1,17 @@
 var gulp = require('gulp');
 var gutil = require("gulp-util");
 var mocha = require('gulp-mocha');
+var istanbul = require('gulp-istanbul');
 
-gulp.task('test', function() {
-    return gulp.src('test/*-spec.js', {read: false})
-        .pipe(mocha({reporter: 'nyan'}));
+gulp.task('test', function(cb) {
+    gulp.src('lib/**/*.js')
+        .pipe(istanbul())                   // instrument the files
+        .on('finish', function () {
+            gulp.src('test/*-spec.js')
+                .pipe(mocha({reporter: 'nyan'}))
+                .pipe(istanbul.writeReports())      // write coverage reports
+                .on('end', cb)
+        });
 });
 
 gulp.task('scripts-bundle', function (cb) {

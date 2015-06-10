@@ -31,27 +31,49 @@ duo --use duo-typescript entry.ts
 ```
 
 ### API
-Below is a minimal javascript file using duo API. The script specifies duo-typescript as a compiler to compile typescript to javascript. The script can be run using ```node --harmony <path-to-duo-script>```
+Below is a ```duofile.js```, a minimal javascript file using duo API. The script specifies duo-typescript as a compiler to compile typescript to javascript. The script can be run using ```node --harmony duofile.js``
 ```javascript
 var Duo = require('duo');
 var fs = require('fs')
 var path = require('path')
 var typescript = require('duo-typescript');
 
-var out = path.join(__dirname, "output.js")
+var out = path.join(__dirname, "app.js")
 
 Duo(__dirname)
-  .entry('entry.ts')
+  .entry('app.ts')
   .use(typescript({ target: 'es6' }))  // arguments is a json object containing TS compiler options
   .run(function (err, results) {
     if (err) throw err;
-    fs.writeFileSync(out, results.code);
+    fs.writeFileSync(out, results.code);  // Output javascript file
+    var len = Buffer.byteLength(results.code);
+    console.log('all done, wrote %dkb', len / 1024 | 0);
+  });
+```
+Another example using duo API to output both javascript and sourcemap file. The script can be run similarly to above example.
+
+```javascript
+var Duo = require('duo');
+var fs = require('fs')
+var path = require('path')
+var typescript = require('duo-typescript');
+
+var out = path.join(__dirname, "app.js")
+var sourcemap = path.join(__dirname, "app.ts.map")  // the file extension has to be .ts.map
+
+Duo(__dirname)
+  .entry('app.ts')
+  .use(typescript({ target: 'es6' }))  // arguments is a json object containing TS compiler options
+  .run(function (err, results) {
+    if (err) throw err;
+    fs.writeFileSync(out, results.code);  // Output javascript file
+    fs.writeFileSync(outsourcemap, results.map);  // Output sourcemap file
     var len = Buffer.byteLength(results.code);
     console.log('all done, wrote %dkb', len / 1024 | 0);
   });
 ```
 
-# API #
+# Options #
 
 duoTypescript(options);
 

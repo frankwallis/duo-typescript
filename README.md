@@ -46,8 +46,6 @@ Duo(__dirname)
   .run(function (err, results) {
     if (err) throw err;
     fs.writeFileSync(out, results.code);  // Output javascript file
-    var len = Buffer.byteLength(results.code);
-    console.log('all done, wrote %dkb', len / 1024 | 0);
   });
 ```
 Another example using duo API to output both javascript and sourcemap file. The script can be run similarly to above example.
@@ -68,8 +66,6 @@ Duo(__dirname)
     if (err) throw err;
     fs.writeFileSync(out, results.code);  // Output javascript file
     fs.writeFileSync(outsourcemap, results.map);  // Output sourcemap file
-    var len = Buffer.byteLength(results.code);
-    console.log('all done, wrote %dkb', len / 1024 | 0);
   });
 ```
 
